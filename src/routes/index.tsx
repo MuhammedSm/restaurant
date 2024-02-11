@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import Events from "../pages/events/Events";
 import MenuPage from "../pages/Menu/MenuPage";
 import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 export const Router = () => {
   return useRoutes([
@@ -14,6 +15,7 @@ export const Router = () => {
         { path: Paths.Events, element: <Events /> },
         { path: Paths.MenuPage, element: <MenuPage /> },
         { path: Paths.About, element: <About /> },
+        { path: Paths.Contact, element: <Contact /> },
       ],
     },
   ]);

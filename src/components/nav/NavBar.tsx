@@ -10,6 +10,9 @@ const NavBar = () => {
   const handleNavigateToAbout = () => {
     navigate(Paths.About);
   };
+  const handleNavigateToContact = () => {
+    navigate(Paths.Contact);
+  };
 
   return (
     <div>
@@ -23,16 +26,31 @@ const NavBar = () => {
             />
           </a>
           <ul className="flex flex-row gap-16 mx-24 text-sm sm:flex-col">
-            <button onClick={handleNavigateToMenu}>
+            <button
+              onClick={handleNavigateToMenu}
+              className="hover:text-Turquoise"
+            >
               <li>Menu</li>
             </button>
 
             <li>
-              <button onClick={handleNavigateToAbout}>About</button>
+              <button
+                onClick={handleNavigateToAbout}
+                className="hover:text-Turquoise"
+              >
+                About
+              </button>
             </li>
-            <li>Contact</li>
+            <li>
+              <button
+                onClick={handleNavigateToContact}
+                className="hover:text-Turquoise"
+              >
+                Contact
+              </button>
+            </li>
           </ul>
-          <button className="bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden">
+          <button className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden">
             Book a table
           </button>
         </div>

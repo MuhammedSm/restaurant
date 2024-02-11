@@ -7,7 +7,9 @@ const MenuPage = () => {
     <div>
       <div>
         <NavBar />
-        <h2 className=" ml-32 font-['sans'] text-[40px] font-bold">Menu</h2>
+        <h2 className=" ml-32 text-black font-['sans'] text-[40px] font-bold">
+          Menu
+        </h2>
         <MenuNav />
       </div>
     </div>

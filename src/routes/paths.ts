@@ -3,4 +3,5 @@ export enum Paths {
   Events = "/events/Events",
   MenuPage = "/Menu/MenuPage",
   About = "/About/About",
+  Contact = "/Contact/Contact",
 }
