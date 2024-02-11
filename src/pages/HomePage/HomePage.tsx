@@ -7,8 +7,14 @@ import Footer from "../../components/footer/Footer";
 import Events from "../events/Events";
 
 const HomePage = () => {
+  const scrollToEvents = () => {
+    const eventsSection = document.getElementById("events");
+    if (eventsSection) {
+      eventsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
-    <div className="">
+    <div className="relative">
       <NavBar />
       <div className="relative">
         <div className="absolute right-10 top-0">
@@ -18,6 +24,19 @@ const HomePage = () => {
           <img className="w-[250px]" src="/images/egg.png" alt="" />
         </div>
         <div></div>
+        <div className="absolute rotate-90 bottom-[40%]  m-3 p-2 px-8 font-bold rounded-lg text-orange text-sm  z-10 right-2">
+          <div className="flex flex-row ">
+            <button onClick={scrollToEvents}>
+              {" "}
+              <img
+                className="w-[25px] h-[25px] m-2"
+                src="/images/arrow-circle-right.svg"
+                alt=""
+              />
+            </button>
+            <button onClick={scrollToEvents}>Scroll to Events</button>
+          </div>
+        </div>
         <div className="flex flex-row">
           <div className="p-20 ml-6 w-[50%]">
             <div className="flex mt-16 mb-4 font-['sans'] text-[30px] font-bold ">

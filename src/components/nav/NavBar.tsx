@@ -3,12 +3,7 @@ import { Paths } from "../../routes/paths";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const scrollToEvents = () => {
-    const eventsSection = document.getElementById("events");
-    if (eventsSection) {
-      eventsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+
   const handleNavigateToMenu = () => {
     navigate(Paths.MenuPage);
   };
@@ -31,9 +26,7 @@ const NavBar = () => {
             <button onClick={handleNavigateToMenu}>
               <li>Menu</li>
             </button>
-            <li>
-              <button onClick={scrollToEvents}>Events</button>
-            </li>
+
             <li>
               <button onClick={handleNavigateToAbout}>About</button>
             </li>
