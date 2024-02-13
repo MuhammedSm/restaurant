@@ -13,6 +13,9 @@ const NavBar = () => {
   const handleNavigateToContact = () => {
     navigate(Paths.Contact);
   };
+  const handleNavigateToBooking = () => {
+    navigate(Paths.BookingPage);
+  };
 
   return (
     <div>
@@ -50,7 +53,10 @@ const NavBar = () => {
               </button>
             </li>
           </ul>
-          <button className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden">
+          <button
+            onClick={handleNavigateToBooking}
+            className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden"
+          >
             Book a table
           </button>
         </div>

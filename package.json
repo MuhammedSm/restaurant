@@ -12,12 +12,15 @@
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
+    "@firebase/firestore": "^4.4.2",
     "@headlessui/react": "^1.7.18",
     "@tanstack/react-query": "^5.18.1",
     "openai": "^4.26.1",
     "react": "^18.2.0",
     "react-axios": "^2.0.6",
     "react-dom": "^18.2.0",
+    "react-firebase": "^2.2.8",
+    "react-hook-form": "^7.50.1",
     "react-router-dom": "^6.22.0",
     "react-use": "^17.5.0",
     "three": "^0.161.0"
