@@ -1,4 +1,5 @@
 import "./styles/globals.scss";
+import "swiper/swiper-bundle.css";
 
 import { Router } from "./routes";
 

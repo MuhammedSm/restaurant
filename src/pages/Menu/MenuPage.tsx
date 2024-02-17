@@ -10,6 +10,7 @@ const MenuPage = () => {
         <h2 className=" ml-32 text-black font-['sans'] text-[40px] font-bold">
           Menu
         </h2>
+
         <MenuNav />
       </div>
     </div>
