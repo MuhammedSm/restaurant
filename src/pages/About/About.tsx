@@ -1,22 +1,50 @@
-import NavBar from "../../components/nav/NavBar";
-import { Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
 import { useTimeoutFn } from "react-use";
+import NavBar from "../../components/nav/NavBar";
+import NavMobile from "../../components/nav/NavMobile";
 import Footer from "../../components/footer/Footer";
+import MobileFooter from "../../components/footer/MobileFooter";
+import { Transition } from "@headlessui/react";
 
+const StoryImageMobile = ({ isShowing }) => {
+  return (
+    <Transition
+      as={Fragment}
+      show={isShowing}
+      enter="transform transition duration-[900ms]"
+      enterFrom="opacity-0 rotate-[-120deg] scale-50"
+      enterTo="opacity-100 rotate-0 scale-100"
+      leave="transform duration-200 transition ease-in-out"
+      leaveFrom="opacity-100 rotate-0 scale-100 "
+      leaveTo="opacity-0 scale-95 "
+    >
+      <img
+        className="w-[350px] h-[350px] shadow-lg md:rounded-full rounded-[20px] mx-20 mt-10 sm:mt-0"
+        src="/images/story.jpg"
+        alt=""
+      />
+    </Transition>
+  );
+};
 const About = () => {
   const [isShowing, setIsShowing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Trigger the animation after the component mounts
     setIsShowing(true);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   let [, , resetIsShowing] = useTimeoutFn(() => setIsShowing(true), 500);
 
   return (
     <div className="relative">
-      <NavBar />
+      {isMobile ? <NavMobile /> : <NavBar />}
 
       <div className="absolute right-40 top-[550px]">
         <img className="w-56 h-48" src="/images/leaf-dark.png" alt="" />
@@ -27,11 +55,13 @@ const About = () => {
       <div className="absolute left-28 top-36">
         <img className="w-[200px] opacity-85" src="/images/green.png" alt="" />
       </div>
-      <div></div>
-      <h2 className="ml-32 font-['sans'] text-[40px] font-bold mt-5 ">About</h2>
-      <div className="flex flex-row justify-between items-center">
-        <div className="ml-32 w-[50%]">
-          <div className="flex text-orange mb-4 font-['sans'] text-[30px] font-bold ">
+
+      <h2 className="md:ml-10 sm:ml-32 font-sans text-[40px] font-bold md:pt-5 pt-20 px-4">
+        About us
+      </h2>
+      <div className="flex flex-col sm:flex-row sm:justify-between items-center px-4">
+        <div className="md:ml-10 ">
+          <div className="flex text-orange mb-4 font-sans text-[30px] font-bold ">
             <p>Embark on a Culinary Odyssey</p>
           </div>
           <p>
@@ -54,16 +84,17 @@ const About = () => {
           leaveTo="opacity-0 scale-95 "
         >
           <img
-            className="w-[350px] h-[350px] shadow-lg rounded-full mx-20"
+            className="w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] shadow-lg md:rounded-full rounded-[20px] mx-20 mt-10 sm:mt-0"
             src="/images/rest.jpg"
             alt=""
           />
         </Transition>
       </div>
-      <div className="flex flex-row justify-between  items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between items-center px-4">
+        {/* Story image for larger screens */}
         <Transition
           as={Fragment}
-          show={isShowing}
+          show={!isMobile}
           enter="transform transition duration-[900ms]"
           enterFrom="opacity-0 rotate-[-120deg] scale-50"
           enterTo="opacity-100 rotate-0 scale-100"
@@ -72,13 +103,15 @@ const About = () => {
           leaveTo="opacity-0 scale-95 "
         >
           <img
-            className="w-[350px] h-[350px] shadow-lg rounded-full m-20"
+            className="w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] shadow-lg rounded-full m-10"
             src="/images/story.jpg"
             alt=""
           />
         </Transition>
-        <div className="mr-32 w-[50%]">
-          <div className="flex mb-4 font-['sans'] text-[30px] font-bold text-orange">
+
+        {/* Story text */}
+        <div className="mr-10 sm:mr-32 sm:w-[50%] mt-10 sm:mt-0">
+          <div className="flex mb-4 font-sans text-[30px] font-bold text-orange">
             <p> Our Story</p>
           </div>
           <p>
@@ -92,13 +125,17 @@ const About = () => {
             captured in the lens of shared memories and delectable creations.
           </p>
         </div>
+
+        {/* Story image for mobile screens */}
+        <StoryImageMobile isShowing={isMobile && isShowing} />
       </div>
-      <div className="flex flex-col justify-center  items-center">
-        <div className=" m-10 flex flex-col justify-center items-center">
-          <div className="flex font-['sans'] text-[30px] mb-2 font-bold text-orange">
+
+      <div className="flex flex-col justify-center items-center">
+        <div className="md:m-10 flex flex-col justify-center items-center md:p-1 p-4">
+          <div className="flex font-sans text-[30px] mb-2 font-bold text-orange">
             <p> Chef and Culinary Philosophy</p>
           </div>
-          <p className="text-center w-[90%]">
+          <p className="md:text-center md:w-[90%]">
             Meet the visionary maestros behind our culinary magic - Remy and our
             dedicated culinary team. With a shared passion for crafting
             extraordinary dining experiences, they bring creativity and
@@ -121,13 +158,13 @@ const About = () => {
           leaveTo="opacity-0 scale-95 "
         >
           <img
-            className="w-[600px] h-[500px] rounded-[30px] mb-16 shadow-lg  "
+            className="md:w-[600px] md:h-[500px] sm:w-[700px] sm:h-[600px] rounded-[30px] mb-16 md:shadow-lg md:p-1 p-4 "
             src="/images/chef.jpg"
             alt=""
           />
         </Transition>
       </div>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };

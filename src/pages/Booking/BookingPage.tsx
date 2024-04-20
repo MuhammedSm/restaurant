@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookingForm from "./BookingForm";
 import NavBar from "../../components/nav/NavBar";
 import Footer from "../../components/footer/Footer";
 import ReservationList from "./ReservationList";
 import "swiper/swiper-bundle.css";
+import NavMobile from "../../components/nav/NavMobile";
+import MobileFooter from "../../components/footer/MobileFooter";
 const BookingPage = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [showReservationList, setShowReservationList] = useState(false);
@@ -18,12 +20,22 @@ const BookingPage = () => {
     setShowBookingForm(false); // Hide booking form when clicking "View reservations"
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div>
       <div>
-        <div className="">
-          <NavBar />
-        </div>
+        <div className="">{isMobile ? <NavMobile /> : <NavBar />}</div>
 
         <div className="absolute right-14 top-36">
           <img
@@ -66,7 +78,7 @@ const BookingPage = () => {
         </div>
         {showBookingForm && <BookingForm />}
         {showReservationList && <ReservationList />}
-        <Footer />
+        {isMobile ? <MobileFooter /> : <Footer />}
       </div>
     </div>
   );

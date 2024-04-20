@@ -2,12 +2,12 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
-      screens: {
-        'lg': {'max': '1023px'},
-        'xl': {'max': '1279px', 'min': '1024px'},
-        'md': {'max': '850px', },
-         'sm':{'max':'375px ', }
-      },
+      // screens: {
+      //   'lg': {'max': '1023px'},
+      //   'xl': {'max': '1279px', 'min': '1024px'},
+      //   'md': {'max': '850px', },
+      //    'sm':{'max':'375px ', }
+      // },
       
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

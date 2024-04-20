@@ -39,19 +39,22 @@ const MenuNav = () => {
   // };
   return (
     <div>
-      <div className="flex  flex-row w-full p-5 align-center items-center justify-center ">
-        <div className="w-full">
-          <ul className="flex flex-row w-[70%] justify-between mx-24 text-sm text-white">
-            <button
-              onClick={scrollToStarters}
-              className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm"
-            >
-              <li>Starters</li>
-            </button>
+      <div className="flex  flex-row w-full p-5 align-center items-center justify-center">
+        <div className=" bg-orange  rounded-lg">
+          <ul className="flex flex-col justify-center items-center py-2 mx-24 text-sm text-white ">
+            <li>
+              {" "}
+              <button
+                onClick={scrollToStarters}
+                className="hover:bg-black rounded-lg p-2 font-bold z-10"
+              >
+                Starters
+              </button>{" "}
+            </li>
             <li>
               <button
                 onClick={scrollToBreakfast}
-                className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm"
+                className="hover:bg-black rounded-lg p-2 font-bold"
               >
                 Breakfast
               </button>
@@ -59,7 +62,7 @@ const MenuNav = () => {
             <li>
               <button
                 onClick={scrollToLunch}
-                className="hover:bg-orange bg-black m-3 p-2 px-11 rounded-full text-white text-sm"
+                className="hover:bg-black rounded-lg p-2 font-bold"
               >
                 Lunch
               </button>
@@ -67,7 +70,7 @@ const MenuNav = () => {
             <li>
               <button
                 onClick={scrollToHot}
-                className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm"
+                className="hover:bg-black rounded-lg p-2 font-bold"
               >
                 Hot drinks
               </button>
@@ -75,13 +78,13 @@ const MenuNav = () => {
             <li>
               <button
                 onClick={scrollToCold}
-                className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm"
+                className="hover:bg-black rounded-lg p-2 font-bold"
               >
                 Cold drinks
               </button>
             </li>
             <li>
-              <button className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm">
+              <button className="hover:bg-black rounded-lg p-2 font-bold">
                 Desserts
               </button>
             </li>

@@ -320,7 +320,7 @@ function BookingForm() {
                 </p>
 
                 <button
-                  className="hover:bg-orange bg-gray-700  p-3  mt-2 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden"
+                  className="hover:bg-orange bg-gray-700  p-3  mt-2 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm "
                   type="submit"
                 >
                   Reserve

@@ -3,7 +3,8 @@ import { Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
 import { useTimeoutFn } from "react-use";
 import Footer from "../../components/footer/Footer";
-
+import NavMobile from "../../components/nav/NavMobile";
+import MobileFooter from "../../components/footer/MobileFooter";
 const Contact = () => {
   const [isShowing, setIsShowing] = useState(false);
 
@@ -13,10 +14,20 @@ const Contact = () => {
   }, []);
 
   let [, , resetIsShowing] = useTimeoutFn(() => setIsShowing(true), 500);
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="relative">
-      <NavBar />
+      {isMobile ? <NavMobile /> : <NavBar />}
 
       <div className="absolute right-40 top-[550px]">
         <img className="w-56 h-48" src="/images/leaf-dark.png" alt="" />
@@ -129,7 +140,7 @@ const Contact = () => {
           />
         </Transition>
       </div>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };

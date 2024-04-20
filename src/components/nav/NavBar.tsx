@@ -28,7 +28,7 @@ const NavBar = () => {
               alt=""
             />
           </a>
-          <ul className="flex flex-row gap-16 mx-24 text-sm sm:flex-col">
+          <ul className="flex flex-row gap-16 mx-24 text-sm">
             <button
               onClick={handleNavigateToMenu}
               className="hover:text-Turquoise"
@@ -55,7 +55,7 @@ const NavBar = () => {
           </ul>
           <button
             onClick={handleNavigateToBooking}
-            className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm sm:hidden"
+            className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm text-white text-sm "
           >
             Book a table
           </button>
