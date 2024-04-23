@@ -1,10 +1,11 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import { useTimeoutFn } from "react-use";
 import NavBar from "../../components/nav/NavBar";
 import NavMobile from "../../components/nav/NavMobile";
 import Footer from "../../components/footer/Footer";
 import MobileFooter from "../../components/footer/MobileFooter";
 import { Transition } from "@headlessui/react";
+import { MobileContext } from "../../MobileContext";
 
 const StoryImageMobile = ({ isShowing }) => {
   return (
@@ -28,7 +29,7 @@ const StoryImageMobile = ({ isShowing }) => {
 };
 const About = () => {
   const [isShowing, setIsShowing] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobilet, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsShowing(true);
@@ -41,7 +42,7 @@ const About = () => {
   }, []);
 
   let [, , resetIsShowing] = useTimeoutFn(() => setIsShowing(true), 500);
-
+  const isMobile = useContext(MobileContext);
   return (
     <div className="relative">
       {isMobile ? <NavMobile /> : <NavBar />}

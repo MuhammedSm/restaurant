@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BookingForm from "./BookingForm";
 import NavBar from "../../components/nav/NavBar";
 import Footer from "../../components/footer/Footer";
@@ -6,10 +6,13 @@ import ReservationList from "./ReservationList";
 import "swiper/swiper-bundle.css";
 import NavMobile from "../../components/nav/NavMobile";
 import MobileFooter from "../../components/footer/MobileFooter";
+import MobileBookingForm from "./MobileBookingForm";
+import MobileReservationList from "./MobileReservationList";
+import { MobileContext } from "../../MobileContext";
 const BookingPage = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [showReservationList, setShowReservationList] = useState(false);
-
+  const isMobile = useContext(MobileContext);
   const handleReserveClick = () => {
     setShowBookingForm(!showBookingForm);
     setShowReservationList(false); // Hide reservation list when clicking "View reservations"
@@ -19,18 +22,6 @@ const BookingPage = () => {
     setShowReservationList(!showReservationList);
     setShowBookingForm(false); // Hide booking form when clicking "View reservations"
   };
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div>
@@ -52,8 +43,8 @@ const BookingPage = () => {
           />
         </div>
 
-        <div className="relative flex flex-col p-7 ml-10 font-['sans'] ">
-          <div className="m-5 max-w-[586px]">
+        <div className="relative flex flex-col p-7 md:ml-10 font-['sans'] ">
+          <div className="md:m-5 mt-14 w-full md:max-w-[586px]">
             <img
               className=" shadow-lg  rounded-lg"
               src="/images/booking.jpg"
@@ -76,8 +67,11 @@ const BookingPage = () => {
             </div>
           </div>
         </div>
-        {showBookingForm && <BookingForm />}
-        {showReservationList && <ReservationList />}
+        {showBookingForm &&
+          (isMobile ? <MobileBookingForm /> : <BookingForm />)}
+
+        {showReservationList &&
+          (isMobile ? <MobileReservationList /> : <ReservationList />)}
         {isMobile ? <MobileFooter /> : <Footer />}
       </div>
     </div>

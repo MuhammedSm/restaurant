@@ -6,20 +6,11 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import { Paths } from "../../routes/paths";
 import NavMobile from "../../components/nav/NavMobile";
 import MobileFooter from "../../components/footer/MobileFooter";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MobileContext } from "../../MobileContext";
 
 const HomePage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize(); // Call it initially
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isMobile = useContext(MobileContext);
   const scrollToEvents = () => {
     const eventsSection = document.getElementById("events");
     if (eventsSection) {

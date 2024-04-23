@@ -1,5 +1,3 @@
-import React from "react";
-
 const MenuNav = () => {
   const scrollToStarters = () => {
     const StartersSection = document.getElementById("Starters");

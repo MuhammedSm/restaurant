@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavBar from "../../components/nav/NavBar";
 import MenuNav from "./MenuNav";
 import Footer from "../../components/footer/Footer";
 import NavMobile from "../../components/nav/NavMobile";
 import MobileFooter from "../../components/footer/MobileFooter";
 import MobileMenuNav from "./MobileMenuNav";
+import { MobileContext } from "../../MobileContext";
 const MenuPage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   const starters = [
     {
       title: "French Fries",
@@ -94,7 +84,8 @@ const MenuPage = () => {
     { title: "Hot Drinks", items: HotDrinks },
     { title: "Cold Drinks", items: ColdDrinks },
   ];
-
+ 
+  const isMobile = useContext(MobileContext);
   return (
     <div>
       <div className="">
@@ -102,7 +93,7 @@ const MenuPage = () => {
         <h2 className="relative pt-16 ml-32 text-black font-['sans'] text-[40px] font-bold">
           Menu
         </h2>
-        {isMobile ? <MobileMenuNav /> : <MenuNav />}
+        <div> {isMobile ? <MobileMenuNav /> : <MenuNav />}</div>
 
         {!isMobile && (
           <>

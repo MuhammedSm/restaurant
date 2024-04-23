@@ -1,148 +1,199 @@
-import NavBar from "../../components/nav/NavBar";
-import { Transition } from "@headlessui/react";
-import { Fragment, useState, useEffect } from "react";
-import { useTimeoutFn } from "react-use";
+"use client";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import Footer from "../../components/footer/Footer";
+import NavBar from "../../components/nav/NavBar";
+import { MobileContext } from "../../MobileContext";
 import NavMobile from "../../components/nav/NavMobile";
 import MobileFooter from "../../components/footer/MobileFooter";
 const Contact = () => {
-  const [isShowing, setIsShowing] = useState(false);
+  const isMobile = useContext(MobileContext);
 
-  useEffect(() => {
-    // Trigger the animation after the component mounts
-    setIsShowing(true);
-  }, []);
+  const form = useRef<HTMLFormElement>(null);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  let [, , resetIsShowing] = useTimeoutFn(() => setIsShowing(true), 500);
-  const [isMobile, setIsMobile] = useState(false);
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    setIsLoading(true);
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    try {
+      if (form.current) {
+        await emailjs.sendForm(
+          "service_r9bzvgo",
+          "template_fcnimzl",
+          form.current,
+          "b2j8XAM2Ircg-WGPo"
+        );
+
+        setIsEmailSent(true);
+        form.current.reset();
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
-    <div className="relative">
+    <section className="bg-gradient-to-b from-gray-100 to-white">
       {isMobile ? <NavMobile /> : <NavBar />}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="pt-14 pb-12 md:pt-14 md:pb-20">
+          {/* Page header */}
+          <div className="max-w-3xl mx-auto text-center pb-10 md:pb-20">
+            <h1 className="h1">
+              Have a project in mind? let's bring it to life together
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 mt-3">
+              I’d love to hear about what you’re looking for. Give me a few
+              details below and I'll be in touch shortly.
+            </p>
+            <p className="text-xl text-gray-600">
+              If you’d prefer email or by phone, reach out to{" "}
+              <span className="text-blue-500">
+                <a href="mailto:webcapsuleofficial@gmail.com">
+                  webcapsuleofficial@gmail.com
+                </a>
+                <br />
+                Phone: +961 76606658
+              </span>
+              .
+            </p>
+            {/* dvgdvydvgd */}
+            {/* gyg */}
+          </div>
 
-      <div className="absolute right-40 top-[550px]">
-        <img className="w-56 h-48" src="/images/leaf-dark.png" alt="" />
-      </div>
-      <div className="absolute left-0 bottom-28">
-        <img className="w-[250px]" src="/images/egg.png" alt="" />
-      </div>
-      <div className="absolute left-28 top-36">
-        <img className="w-[200px] opacity-85" src="/images/green.png" alt="" />
-      </div>
-      <div></div>
-      <h2 className="ml-32 font-['sans'] text-[40px] font-bold mt-5 ">
-        Get In Touch
-      </h2>
-      <div className="flex flex-row justify-between items-center">
-        <div className="ml-32 w-[50%]">
-          <div className="flex text-orange mb-4 font-['sans'] text-[30px] font-bold ">
-            <p>Embark on a Culinary Odyssey</p>
+          {/* Form */}
+          <div className="max-w-sm mx-auto">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="flex flex-wrap -mx-3 mb-4">
+                <div className="w-full px-3">
+                  <label
+                    className="block text-gray-800 text-sm font-medium mb-1"
+                    htmlFor="name"
+                  >
+                    Name <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    className="form-input w-full text-gray-800"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap -mx-3 mb-4">
+                <div className="w-full px-3">
+                  <label
+                    className="block text-gray-800 text-sm font-medium mb-1"
+                    htmlFor="email"
+                  >
+                    Email <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    className="form-input w-full text-gray-800"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+              </div>
+              {/* Checkbox options */}
+              <div className="flex flex-wrap -mx-3 mb-4">
+                <div className="w-full px-3">
+                  <label className="block text-gray-800 text-sm font-medium mb-1">
+                    What do you need help with?{" "}
+                  </label>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="checkbox"
+                      value="Menu for Restaurants"
+                      className="form-checkbox h-5 w-5 text-blue-600"
+                    />
+                    <label htmlFor="checkbox" className="ml-2 text-gray-800">
+                      Menu for Restaurants
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="checkbox"
+                      value="Basic Web service"
+                      className="form-checkbox h-5 w-5 text-blue-600"
+                    />
+                    <label htmlFor="checkbox" className="ml-2 text-gray-800">
+                      Basic Web service
+                    </label>
+                  </div>{" "}
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="checkbox"
+                      value="E-commerce websites for Large Businesses"
+                      className="form-checkbox h-5 w-5 text-blue-600"
+                    />
+                    <label htmlFor="checkbox" className="ml-2 text-gray-800">
+                      E-commerce websites for Large Businesses
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap -mx-3 mb-4">
+                <div className="w-full px-3">
+                  <label
+                    className="block text-gray-800 text-sm font-medium mb-1"
+                    htmlFor="message"
+                  >
+                    Message <span className="text-red-600">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    className="form-input w-full text-gray-800"
+                    name="message"
+                    placeholder="Enter your message"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap -mx-3 mt-6">
+                <div className="w-full px-3">
+                  <button
+                    type="submit"
+                    className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <span className="animate-spin mr-2">&#9696;</span>{" "}
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </div>
+              </div>
+            </form>
+            {isEmailSent && (
+              <p className="text-green-500 mt-3 text-center">
+                Your message was successfully sent!
+              </p>
+            )}
           </div>
-          <p>
-            Welcome to to our restaurant, where culinary excellence meets a
-            captivating dining experience. Step into a world where flavors dance
-            on your palate, and every meal is a celebration. Our commitment to
-            exceptional quality and warm hospitality sets us apart, inviting you
-            to savor moments that linger long after the last bite.
-          </p>
         </div>
-
-        <Transition
-          as={Fragment}
-          show={isShowing}
-          enter="transform transition duration-[900ms]"
-          enterFrom="opacity-0 rotate-[-120deg] scale-50"
-          enterTo="opacity-100 rotate-0 scale-100"
-          leave="transform duration-200 transition ease-in-out"
-          leaveFrom="opacity-100 rotate-0 scale-100 "
-          leaveTo="opacity-0 scale-95 "
-        >
-          <img
-            className="w-[350px] h-[350px] shadow-lg rounded-full mx-20"
-            src="/images/rest.jpg"
-            alt=""
-          />
-        </Transition>
-      </div>
-      <div className="flex flex-row justify-between  items-center">
-        <Transition
-          as={Fragment}
-          show={isShowing}
-          enter="transform transition duration-[900ms]"
-          enterFrom="opacity-0 rotate-[-120deg] scale-50"
-          enterTo="opacity-100 rotate-0 scale-100"
-          leave="transform duration-200 transition ease-in-out"
-          leaveFrom="opacity-100 rotate-0 scale-100 "
-          leaveTo="opacity-0 scale-95 "
-        >
-          <img
-            className="w-[350px] h-[350px] shadow-lg rounded-full m-20"
-            src="/images/story.jpg"
-            alt=""
-          />
-        </Transition>
-        <div className="mr-32 w-[50%]">
-          <div className="flex mb-4 font-['sans'] text-[30px] font-bold text-orange">
-            <p> Our Story</p>
-          </div>
-          <p>
-            Our story unfolds like a culinary journey, woven with passion and
-            dedication. From humble beginnings to becoming a cornerstone of the
-            community, our restaurant's evolution is a testament to the love and
-            support of our patrons. Explore the chapters of our history, marked
-            by unforgettable anecdotes, milestones, and the unique elements that
-            make dining with us a truly remarkable experience. Let the visuals
-            paint a vivid picture, as we share the moments that define us,
-            captured in the lens of shared memories and delectable creations.
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col justify-center  items-center">
-        <div className=" m-10 flex flex-col justify-center items-center">
-          <div className="flex font-['sans'] text-[30px] mb-2 font-bold text-orange">
-            <p> Chef and Culinary Philosophy</p>
-          </div>
-          <p className="text-center w-[90%]">
-            Meet the visionary maestros behind our culinary magic - Remy and our
-            dedicated culinary team. With a shared passion for crafting
-            extraordinary dining experiences, they bring creativity and
-            expertise to every plate. Immerse yourself in the artistry of our
-            kitchen as you witness Remy at work, infusing each dish with a blend
-            of innovation and tradition. Explore our culinary philosophy, where
-            fresh, locally-sourced ingredients meet skillful craftsmanship,
-            resulting in signature dishes that are a symphony of flavors,
-            textures, and culinary mastery.
-          </p>
-        </div>
-        <Transition
-          as={Fragment}
-          show={isShowing}
-          enter="transform transition duration-[900ms]"
-          enterFrom="opacity-0 rotate-[-120deg] scale-50"
-          enterTo="opacity-100 rotate-0 scale-100"
-          leave="transform duration-200 transition ease-in-out"
-          leaveFrom="opacity-100 rotate-0 scale-100 "
-          leaveTo="opacity-0 scale-95 "
-        >
-          <img
-            className="w-[600px] h-[500px] rounded-[30px] mb-16 shadow-lg  "
-            src="/images/chef.jpg"
-            alt=""
-          />
-        </Transition>
       </div>
       {isMobile ? <MobileFooter /> : <Footer />}
-    </div>
+    </section>
   );
 };
-
 export default Contact;

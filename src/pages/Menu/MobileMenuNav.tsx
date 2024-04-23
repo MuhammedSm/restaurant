@@ -1,6 +1,4 @@
-import React from "react";
-
-const MenuNav = () => {
+const MobileMenuNav = () => {
   const scrollToStarters = () => {
     const StartersSection = document.getElementById("Starters");
     if (StartersSection) {
@@ -95,4 +93,4 @@ const MenuNav = () => {
   );
 };
 
-export default MenuNav;
+export default MobileMenuNav;
