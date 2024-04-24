@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm install --force && tsc && vite build",
+    "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  
   "dependencies": {
+    "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@firebase/firestore": "^4.4.2",
     "@headlessui/react": "^1.7.18",
     "@mui/x-date-pickers": "^6.19.4",
@@ -19,7 +19,7 @@
     "emailjs-com": "^3.2.0",
     "flowbite-datepicker": "^1.2.6",
     "openai": "^4.26.1",
-    "react": "^16.14.0",
+    "react": "^18.2.0",
     "react-axios": "^2.0.6",
     "react-dom": "^18.2.0",
     "react-firebase": "^2.2.8",
@@ -49,9 +49,5 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
-  },
-  "resolutions": {
-    "react-dom": "17.0.2",
-    "react": "17.0.2"
   }
 }
