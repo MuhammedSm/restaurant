@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@firebase/firestore": "^4.4.2",
     "@headlessui/react": "^1.7.18",
     "@mui/x-date-pickers": "^6.19.4",
@@ -22,7 +21,7 @@
     "react": "^18.2.0",
     "react-axios": "^2.0.6",
     "react-dom": "^18.2.0",
-    "react-firebase": "^2.2.8",
+    "react-firebase": "^10.11.0",
     "react-hook-form": "^7.50.1",
     "react-router-dom": "^6.22.0",
     "react-swiper": "^0.1.5",
