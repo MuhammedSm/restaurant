@@ -39,22 +39,32 @@ const Contact = () => {
   return (
     <section className="bg-gradient-to-b from-gray-100 to-white">
       {isMobile ? <NavMobile /> : <NavBar />}
+      {!isMobile && (
+        <>
+          {" "}
+          <div className="absolute right-40 top-[550px]">
+            <img className="w-56 h-48" src="/images/leaf-dark.png" alt="" />
+          </div>
+          <div className="absolute left-0 bottom-28">
+            <img className="w-[250px]" src="/images/egg.png" alt="" />
+          </div>{" "}
+        </>
+      )}
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-14 pb-12 md:pt-14 md:pb-20">
           {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-10 md:pb-20">
-            <h1 className="h1">
-              Have a project in mind? let's bring it to life together
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 mt-3">
+            <h1 className="h1">Have a question? Please reach out</h1>
+            <p className="text-xl mb-8 mt-3">
               I’d love to hear about what you’re looking for. Give me a few
               details below and I'll be in touch shortly.
             </p>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl">
               If you’d prefer email or by phone, reach out to{" "}
-              <span className="text-blue-500">
-                <a href="mailto:webcapsuleofficial@gmail.com">
-                  webcapsuleofficial@gmail.com
+              <span className="text-orange font-semibold">
+                <a href="mailto:muhammedseyhmusa5@gmail.com">
+                  muhammedseyhmusa5@gmail.com
                 </a>
                 <br />
                 Phone: +961 76606658
@@ -80,7 +90,7 @@ const Contact = () => {
                     id="name"
                     type="text"
                     name="name"
-                    className="form-input w-full text-gray-800"
+                    className="form-input w-full p-2 rounded-[20px] border-2  border-Turquoise  text-gray-800"
                     placeholder="Enter your name"
                     required
                   />
@@ -98,7 +108,7 @@ const Contact = () => {
                     id="email"
                     type="email"
                     name="email"
-                    className="form-input w-full text-gray-800"
+                    className="form-input w-full p-2 rounded-[20px] border-2  border-Turquoise  text-gray-800"
                     placeholder="Enter your email address"
                     required
                   />
@@ -116,10 +126,10 @@ const Contact = () => {
                       id="checkbox"
                       name="checkbox"
                       value="Menu for Restaurants"
-                      className="form-checkbox h-5 w-5 text-blue-600"
+                      className="form-checkbox h-5 w-5 text-Turquoise"
                     />
                     <label htmlFor="checkbox" className="ml-2 text-gray-800">
-                      Menu for Restaurants
+                      Careers
                     </label>
                   </div>
                   <div className="flex items-center">
@@ -131,7 +141,7 @@ const Contact = () => {
                       className="form-checkbox h-5 w-5 text-blue-600"
                     />
                     <label htmlFor="checkbox" className="ml-2 text-gray-800">
-                      Basic Web service
+                      No availabile tables
                     </label>
                   </div>{" "}
                   <div className="flex items-center">
@@ -143,7 +153,7 @@ const Contact = () => {
                       className="form-checkbox h-5 w-5 text-blue-600"
                     />
                     <label htmlFor="checkbox" className="ml-2 text-gray-800">
-                      E-commerce websites for Large Businesses
+                      Location info
                     </label>
                   </div>
                 </div>
@@ -158,7 +168,7 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="message"
-                    className="form-input w-full text-gray-800"
+                    className="form-input w-full p-2 rounded-[20px] border-2  border-Turquoise  text-gray-800"
                     name="message"
                     placeholder="Enter your message"
                     required
@@ -169,7 +179,7 @@ const Contact = () => {
                 <div className="w-full px-3">
                   <button
                     type="submit"
-                    className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
+                    className="btn text-white bg-Turquoise hover:bg-orange p-2 rounded-[20px] w-full"
                     disabled={isLoading}
                   >
                     {isLoading ? (
@@ -185,7 +195,7 @@ const Contact = () => {
               </div>
             </form>
             {isEmailSent && (
-              <p className="text-green-500 mt-3 text-center">
+              <p className="text-orange mt-3 text-center">
                 Your message was successfully sent!
               </p>
             )}

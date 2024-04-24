@@ -58,7 +58,7 @@ const HomePage = () => {
               lorem ipsum dolor sit amet, consectetur. lorem ipsum dolor sit am,
               lorem ipsum dolor. Lorem ipsum dolor sit am et
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-7">
+            <div className="flex flex-col sm:flex-row gap-4  sm:gap-8 mt-7">
               <button
                 onClick={handleNavigateToMenu}
                 className="hover:bg-Turquoise bg-black p-3 px-5 rounded-tl-lg rounded-tr-sm rounded-br-lg shadow-lg z-10 rounded-bl-sm text-white text-sm sm:text-base"
@@ -67,7 +67,7 @@ const HomePage = () => {
               </button>
               <button
                 onClick={handleNavigateToBooking}
-                className="hover:bg-Turquoise bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg shadow-lg rounded-bl-sm text-white text-sm sm:text-base"
+                className="hover:bg-Turquoise z-40 bg-orange p-3 rounded-tl-lg rounded-tr-sm rounded-br-lg shadow-lg rounded-bl-sm text-white text-sm sm:text-base"
               >
                 Book a table
               </button>

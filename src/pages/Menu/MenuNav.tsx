@@ -78,11 +78,6 @@ const MenuNav = () => {
                 Cold drinks
               </button>
             </li>
-            <li>
-              <button className="hover:bg-orange bg-black m-3 p-2 px-8 rounded-full text-white text-sm">
-                Desserts
-              </button>
-            </li>
           </ul>
         </div>
       </div>

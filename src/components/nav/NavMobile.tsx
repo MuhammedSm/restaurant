@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../routes/paths";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MobileContext } from "../../MobileContext";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useContext(MobileContext);
 
   const handleNavigateToMenu = () => {
     navigate(Paths.MenuPage);
@@ -28,7 +30,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className={` ${isMobileMenuOpen ? "mb-20" : ""}`}>
+    <nav className={`${isMobileMenuOpen ? "mb-20" : ""}`}>
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <Link
           to="/"
@@ -52,15 +54,18 @@ const NavBar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>
         </button>
+        {/* Updated conditional rendering based on isMobile */}
         <div
-          className={`w-full md:block md:w-auto absolute top-14 md:relative ${
+          className={`w-full ${
+            isMobile ? "block" : "md:block"
+          } md:w-auto absolute top-14 md:relative ${
             isMobileMenuOpen ? "block" : "hidden"
           }`}
           id="navbar-default"

@@ -67,16 +67,7 @@ const MenuPage = () => {
         "A popular beverage known for its refreshing and flavorful qualities.",
     },
   ];
-  const Desserts = [
-    {
-      title: "Breakfast Item 1",
-      description: "Description for Breakfast Item 1",
-    },
-    {
-      title: "Breakfast Item 2",
-      description: "Description for Breakfast Item 2",
-    },
-  ];
+
   const menuSections = [
     { title: "Starters", items: starters },
     { title: "Breakfast", items: breakfast },
@@ -84,7 +75,7 @@ const MenuPage = () => {
     { title: "Hot Drinks", items: HotDrinks },
     { title: "Cold Drinks", items: ColdDrinks },
   ];
- 
+
   const isMobile = useContext(MobileContext);
   return (
     <div>

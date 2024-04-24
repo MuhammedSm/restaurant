@@ -81,11 +81,6 @@ const MobileMenuNav = () => {
                 Cold drinks
               </button>
             </li>
-            <li>
-              <button className="hover:bg-black rounded-lg p-2 font-bold">
-                Desserts
-              </button>
-            </li>
           </ul>
         </div>
       </div>

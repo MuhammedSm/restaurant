@@ -18,13 +18,20 @@ const Footer = () => {
       <div className="flex flex-row w-full p-4  bg-Turquoise relative">
         <div className="w-full gap-80 flex flex-row">
           <div className="flex flex-col text-white">
-            <img
-              className="w-[140px] h-[35px] mr-[90px] my-4"
-              src="/images/logo.png"
-              alt=""
-            />
+            <a href="/">
+              {" "}
+              <img
+                className="w-[140px] h-[35px] mr-[90px] my-4"
+                src="/images/logo.png"
+                alt=""
+              />
+            </a>
             <div className="mx-7">Beirut, Lebanon</div>
-            <div className="mx-7">muhammedseyhmusa@gmail.com</div>
+            <div className="mx-7">
+              <a href="mailto:webcapsuleofficial@gmail.com">
+                muhammedseyhmusa5@gmail.com
+              </a>
+            </div>
           </div>
           <div className="text-white">
             <h2 className="my-4 text-black font-bold">Navigation</h2>
@@ -55,16 +62,26 @@ const Footer = () => {
                   Contact
                 </button>
               </li>
+              <li>
+                <a href="/">
+                  <button className="hover:text-orange">Home</button>
+                </a>
+              </li>
             </ul>
           </div>
           <div className="text-white">
             <h2 className="my-4 text-black font-bold">Follow Us</h2>
             <div className=" flex flex-row gap-5 text-sm sm:flex-col">
-              <img
-                className="w-[25px] h-[25px]"
-                src="/images/instagram.png"
-                alt=""
-              />
+              <a
+                target="_blank"
+                href="https://www.instagram.com/_.mo_hamad_?igsh=MTJoaTN5a2thcmVjOQ=="
+              >
+                <img
+                  className="w-[25px] h-[25px]"
+                  src="/images/instagram.png"
+                  alt=""
+                />{" "}
+              </a>
               <a
                 target="_blank"
                 href="https://www.linkedin.com/in/muhammed-cheikh-moussa-001968211/"

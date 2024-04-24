@@ -25,7 +25,7 @@ function BookingForm() {
     time: "",
     guests: 1,
   };
-  const [quantity, setQuantity] = useState<number>(3);
+  const [quantity, setQuantity] = useState<number>(1);
 
   const handleIncrement = () => {
     // Add any additional logic you need for incrementing
@@ -143,7 +143,7 @@ function BookingForm() {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <label className="block m-2 text-sm font-medium text-gray-900 dark:text-white">
               Pick Your Table
             </label>
@@ -169,7 +169,7 @@ function BookingForm() {
                 defaultValue={defaultValues.table}
               />
             </div>
-          </div>
+          </div> */}
           <div>
             <label className="block m-2 text-sm font-medium text-gray-900 dark:text-white">
               Date
@@ -261,7 +261,8 @@ function BookingForm() {
                   aria-describedby="helper-text-explanation"
                   className="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder=""
-                  value={quantity}
+                  value={quantity} // Use quantity here
+                  onChange={(e) => setQuantity(parseInt(e.target.value))} // Update quantity state on change
                   required
                   style={{
                     WebkitAppearance: "none",

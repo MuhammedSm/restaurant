@@ -26,7 +26,11 @@ const MobileFooter = () => {
           alt=""
         />
         <div>Beirut, Lebanon</div>
-        <div>muhammedseyhmusa@gmail.com</div>
+        <div>
+          <a href="mailto:muhammedseyhmusa5@gmail.com">
+            muhammedseyhmusa5@gmail.com
+          </a>
+        </div>
       </div>
 
       <div className="text-white mb-4">
@@ -62,11 +66,16 @@ const MobileFooter = () => {
       <div className="text-white mb-4">
         <h2 className="my-2 text-black font-bold">Follow Us</h2>
         <div className="flex gap-5 text-sm">
-          <img
-            className="w-[25px] h-[25px]"
-            src="/images/instagram.png"
-            alt=""
-          />
+          <a
+            target="_blank"
+            href="https://www.instagram.com/_.mo_hamad_?igsh=MTJoaTN5a2thcmVjOQ=="
+          >
+            <img
+              className="w-[25px] h-[25px]"
+              src="/images/instagram.png"
+              alt=""
+            />{" "}
+          </a>
           <a
             target="_blank"
             href="https://www.linkedin.com/in/muhammed-cheikh-moussa-001968211/"

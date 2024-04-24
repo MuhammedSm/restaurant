@@ -8,7 +8,7 @@ export const MobileProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
+    setIsMobile(window.innerWidth <= 1030);
   };
 
   // Add resize event listener
