@@ -12,7 +12,7 @@ interface FormData {
   time: string;
   guests: number;
 }
-
+//test
 function BookingForm() {
   const { register, handleSubmit, control } = useForm<FormData>();
 
