@@ -1,10 +1,12 @@
-// MobileContext.js
+import React, { createContext, useEffect, useState, ReactNode } from "react";
 
-import React, { createContext, useEffect, useState } from "react";
+export const MobileContext = createContext(false);
 
-export const MobileContext = createContext();
+interface MobileProviderProps {
+  children: ReactNode;
+}
 
-export const MobileProvider = ({ children }) => {
+export const MobileProvider: React.FC<MobileProviderProps> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {

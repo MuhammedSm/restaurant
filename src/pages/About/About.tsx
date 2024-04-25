@@ -7,7 +7,7 @@ import MobileFooter from "../../components/footer/MobileFooter";
 import { Transition } from "@headlessui/react";
 import { MobileContext } from "../../MobileContext";
 
-const StoryImageMobile = ({ isShowing }) => {
+const StoryImageMobile = ({ isShowing }: { isShowing: boolean }) => {
   return (
     <Transition
       as={Fragment}
