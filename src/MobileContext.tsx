@@ -10,7 +10,7 @@ export const MobileProvider: React.FC<MobileProviderProps> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 1030);
+    setIsMobile(window.outerWidth <= 1030);
   };
 
   // Add resize event listener
