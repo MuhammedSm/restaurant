@@ -107,8 +107,12 @@ const MenuPage = () => {
 
         <div className="mt-7 max-w-screen-xl mx-auto">
           {menuSections.map((section, index) => (
-            <div id={`${section.title}`} key={index} className="mb-8">
-              <h2 className="text-2xl ml-32 font-bold mb-6 text-orange">
+            <div
+              id={`${section.title}`}
+              key={index}
+              className="mb-8 flex flex-col items-center md:items-start md:block"
+            >
+              <h2 className="text-2xl md:ml-32 font-bold mb-6 text-orange">
                 {section.title}
               </h2>
               <div className="flex flex-col md:flex-row md:ml-28 md:flex-wrap">

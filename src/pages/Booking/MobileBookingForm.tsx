@@ -140,7 +140,7 @@ function MobileBookingForm() {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <label className="block m-2 text-sm font-medium text-gray-900 dark:text-white">
               Pick Your Table
             </label>
@@ -166,7 +166,7 @@ function MobileBookingForm() {
                 defaultValue={defaultValues.table}
               />
             </div>
-          </div>
+          </div> */}
           <div>
             <label className="block m-2 text-sm font-medium text-gray-900 dark:text-white">
               Date
