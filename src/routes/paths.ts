@@ -1,8 +1,8 @@
 export enum Paths {
   Home = "/",
   Events = "/events/Events",
-  MenuPage = "/Menu/MenuPage",
-  About = "/About/About",
-  Contact = "/Contact/Contact",
-  BookingPage = "/Booking/BookingPages",
+  MenuPage = "/MenuPage",
+  About = "/About",
+  Contact = "/Contact",
+  BookingPage = "/BookingPages",
 }
