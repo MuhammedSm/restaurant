@@ -37,17 +37,20 @@ const NavBar = () => {
             </button>
 
             <li>
-              <a
+              <button
                 onClick={handleNavigateToAbout}
-                className="hover:text-Turquoise cursor-pointer"
+                className="hover:text-Turquoise"
               >
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/Contact" className="hover:text-Turquoise">
+              <button
+                onClick={handleNavigateToContact}
+                className="hover:text-Turquoise"
+              >
                 Contact
-              </a>
+              </button>
             </li>
           </ul>
           <button
